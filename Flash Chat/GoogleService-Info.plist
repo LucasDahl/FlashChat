@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>863812883892-j8u08eihlpvdlaa4d1t6l317cus7074k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.863812883892-j8u08eihlpvdlaa4d1t6l317cus7074k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBr4SCv8Ec1R--uAFniJkIOgQeVEOdsW3s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>863812883892</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.LucasDahl.Flash-Chat</string>
+	<key>PROJECT_ID</key>
+	<string>lash-chat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lash-chat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:863812883892:ios:43a1d8e511bcb6bf</string>
+	<key>DATABASE_URL</key>
+	<string>https://lash-chat.firebaseio.com</string>
+</dict>
+</plist>
