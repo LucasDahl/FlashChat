@@ -38,17 +38,23 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
             
             if error != nil {
+                
                 print(error!)
+                
+                // TODO: Add errors to the user for weak passwords
+                
+                
             } else {
                 
                 // Success
                 print("Reistration Successful!")
                 
+                // Move to the chat screen after successful regestration
+                self.performSegue(withIdentifier: "goToChat", sender: self)
+                
             }
             
         }
-        
-
         
         
     } 
