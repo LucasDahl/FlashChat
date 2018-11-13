@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 @UIApplicationMain
@@ -17,8 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //TODO: Initialise and Configure your Firebase here:
+        // Initialise and Configure your Firebase here:
+        FirebaseApp.configure()
         
+        // Reference to the data base
+        let myDatabase = Database.database().reference()
+        
+        // Check if it's connected to teh database
+        myDatabase.setValue("We've got data!")
         
         return true
     }
