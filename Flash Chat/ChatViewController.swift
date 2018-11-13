@@ -11,12 +11,12 @@ import UIKit
 import Firebase
 
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // Declare instance variables here
+    // Properties
 
     
-    // We've pre-linked the IBOutlets
+    // BOutlets
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
@@ -27,20 +27,24 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set yourself as the delegate and datasource here:
+        // delegate and datasource
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
         
         
-        
-        // Set yourself as the delegate of the text field here:
+        // delegate of the text field
 
         
         
-        // Set the tapGesture here:
+        // tapGesture
         
         
 
-        // Register your MessageCell.xib file here:
-
+        // Register MessageCell.xib file
+        messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
+        
+        // Connfigure the tableview
+        configureTableView()
         
     }
 
@@ -50,20 +54,41 @@ class ChatViewController: UIViewController {
     
     
     
-    // Declare cellForRowAtIndexPath here:
+    // CellForRowAtIndexPath
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Creat the cell and declare it as the custom cell class to call properties
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        
+        // Text to displat in the cell
+        let messageArray = ["First message", "Second Message", "Third Message"]
+        
+        cell.messageBody.text = messageArray[indexPath.row]
+        
+        // return the cell
+        return cell
+        
+    }
+    
+    
+    // NumberOfRowsInSection
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  3
+    }
+    
+    
+    // TableViewTapped
     
     
     
-    // Declare numberOfRowsInSection here:
-    
-    
-    
-    // Declare tableViewTapped here:
-    
-    
-    
-    // Declare configureTableView here:
-    
+    // ConfigureTableView
+    func configureTableView() {
+        
+        // Set the cell height
+        messageTableView.rowHeight = UITableViewAutomaticDimension
+        messageTableView.estimatedRowHeight = 120
+        
+    }
     
     
     ///////////////////////////////////////////
@@ -73,12 +98,12 @@ class ChatViewController: UIViewController {
     
 
     
-    // Declare textFieldDidBeginEditing here:
+    // extFieldDidBeginEditing
     
     
     
     
-    // Declare textFieldDidEndEditing here:
+    // textFieldDidEndEditing
     
 
     
@@ -86,9 +111,6 @@ class ChatViewController: UIViewController {
     
     
     //MARK: - Send & Recieve from Firebase
-    
-    
-    
     
     
     @IBAction func sendPressed(_ sender: AnyObject) {
