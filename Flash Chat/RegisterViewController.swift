@@ -14,8 +14,7 @@ import Firebase
 class RegisterViewController: UIViewController {
 
     
-    //Pre-linked IBOutlets
-
+    // IBOutlets
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     
@@ -35,7 +34,8 @@ class RegisterViewController: UIViewController {
 
         
         // Set up a new user on our Firbase database
-        Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
+        Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) {
+            (user, error) in
             
             if error != nil {
                 

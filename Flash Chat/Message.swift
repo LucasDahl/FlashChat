@@ -9,7 +9,7 @@
 
 class Message {
     
-    //TODO: Messages need a messageBody and a sender variable
+    // Messages need a messageBody and a sender variable
     
     
     
