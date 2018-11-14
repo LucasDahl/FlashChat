@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // Reference to the data base
-        let myDatabase = Database.database().reference()
+        //let myDatabase = Database.database().reference()
         
-        // Check if it's connected to teh database
-        myDatabase.setValue("We've got data!")
+        // Check if it's connected to teh database THIS WILL WIPE THE DATA
+        //myDatabase.setValue("We've got data!")
         
         return true
     }
