@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     // Properties
 
@@ -33,11 +33,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         // delegate of the text field
-
+        messageTextfield.delegate = self
         
         
         // tapGesture
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+        messageTableView.addGestureRecognizer(tapGesture)
         
 
         // Register MessageCell.xib file
@@ -51,8 +52,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     ///////////////////////////////////////////
     
     //MARK: - TableView DataSource Methods
-    
-    
+
     
     // CellForRowAtIndexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +78,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // TableViewTapped
-    
+    @objc func tableViewTapped() {
+        
+        // Trigger the endEditing method to trigger the animation for the tap gesture.
+        messageTextfield.endEditing(true)
+        
+    }
     
     
     // ConfigureTableView
@@ -96,15 +101,35 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK:- TextField Delegate Methods
     
     
-
-    
-    // extFieldDidBeginEditing
-    
-    
+    // textFieldDidBeginEditing
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        
+        // ANimate the pop up for the kewyboard
+        UIView.animate(withDuration: 0.25) {
+            
+            // Set the height constrant for the textfield when it's tapped
+            self.heightConstraint.constant = 308
+            self.view.layoutIfNeeded()
+            
+        }
+        
+    }
     
     
     // textFieldDidEndEditing
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        // ANimate the pop up for the kewyboard
+        UIView.animate(withDuration: 0.25) {
+            
+            // Set the height constrant for the textfield when it's tapped
+            self.heightConstraint.constant = 50
+            self.view.layoutIfNeeded()
+            
+        }
+        
+    }
 
     
     ///////////////////////////////////////////
